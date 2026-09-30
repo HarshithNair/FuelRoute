@@ -1,0 +1,6 @@
+Natural Earth 1:110m countries, US states and populated places.
+Source: https://github.com/nvkelso/natural-earth-vector/tree/master/geojson
+Downloaded 2026-09-30. Original geometry preserved; unused properties removed;
+city features limited to USA, Canada and Mexico. Public-domain map data.
+https://www.naturalearthdata.com/about/terms-of-use/
+This is a regional reference basemap, not street-level navigation data.

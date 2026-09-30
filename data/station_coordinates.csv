@@ -1,0 +1,26 @@
+source_id,latitude,longitude,coordinate_source
+135,41.4106903,-90.0162744,OpenStreetMap way/1256838182; chain and station number
+1914,38.9951634,-110.1846557,OpenStreetMap way/325139238; chain and station number
+4860,41.1807332,-90.3370057,"OpenStreetMap way/264238454; unique chain, city and state"
+4910,38.9955522,-110.1484468,"OpenStreetMap way/241717704; unique chain, city and state"
+52463,36.241322,-115.0977904,"OpenStreetMap way/264216830; unique chain, city and state"
+52684,41.8146023,-90.241298,"OpenStreetMap way/1525686635; unique chain, city and state"
+63766,41.7983915,-83.69414,"OpenStreetMap way/796722330; unique chain, city and state"
+63770,41.7893369,-80.8556285,OpenStreetMap way/220780613 via Nominatim
+67067,40.0778674,-104.648352,"OpenStreetMap node/4182375319; unique chain, city and state"
+67296,36.3818449,-114.8962095,OpenStreetMap way/225364818; chain and station number
+67624,39.7407236,-104.4343359,OpenStreetMap way/224603696; chain and station number
+67635,41.5371258,-83.4666151,OpenStreetMap way/223010493; chain and station number
+69117,41.5062999,-83.747908,OpenStreetMap way/698949703; chain and station number
+69214,39.5221315,-107.77717,OpenStreetMap way/915140636; chain and station number
+69288,41.8261331,-90.5515765,OpenStreetMap node/1783918069; chain and station number
+69401,41.2280056,-95.8533517,"OpenStreetMap way/698747745; unique chain, city and state"
+70281,41.9647785,-83.3450195,"OpenStreetMap node/6928859177; unique chain, city and state"
+70793,38.9945182,-110.1839612,OpenStreetMap way/325139235; chain and station number
+71200,41.1577158,-96.1376774,OpenStreetMap node/9318631667; chain and station number
+71214,39.9717963,-104.7486955,"OpenStreetMap way/708363961; unique chain, city and state"
+7129,41.172773,-79.0994131,"OpenStreetMap way/220638284; unique chain, city and state"
+71697,41.1713602,-79.0460107,OpenStreetMap node/11902579169; chain and station number
+71712,38.9946577,-110.1809396,"OpenStreetMap way/1305812977; unique chain, city and state"
+7263,41.0521895,-102.0705214,OpenStreetMap node/7502086792 via Nominatim
+72965,36.2701753,-115.054001,"OpenStreetMap way/1098781677; unique chain, city and state"

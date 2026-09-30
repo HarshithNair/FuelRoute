@@ -1,0 +1,14 @@
+.venv/
+.venv-verify/
+__pycache__/
+*.py[cod]
+.env
+*.sqlite3
+*.sqlite3-*
+staticfiles/
+.DS_Store
+data/osm_stations.json
+data/*pois.json
+artifacts/
+.pytest_cache/
+.ruff_cache/

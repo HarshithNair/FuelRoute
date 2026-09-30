@@ -1,0 +1,160 @@
+{
+  "info": {
+    "name": "FuelRoute API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+  },
+  "variable": [
+    {
+      "key": "base_url",
+      "value": "http://127.0.0.1:8000"
+    }
+  ],
+  "item": [
+    {
+      "name": "Cross-country",
+      "request": {
+        "method": "POST",
+        "header": [
+          {
+            "key": "Content-Type",
+            "value": "application/json"
+          }
+        ],
+        "url": "{{base_url}}/api/route/",
+        "body": {
+          "mode": "raw",
+          "raw": "{\n  \"start\": \"New York, NY\",\n  \"finish\": \"Los Angeles, CA\"\n}"
+        }
+      },
+      "event": [
+        {
+          "listen": "test",
+          "script": {
+            "type": "text/javascript",
+            "exec": [
+              "pm.test(\"HTTP 200\", () => pm.response.to.have.status(200));",
+              "const p = pm.response.json();",
+              "pm.test(\"All legs fit the tank\", () => p.legs.forEach(l => pm.expect(l.distance_miles).to.be.at.most(500)));",
+              "pm.test(\"Fuel cost reconciles\", () => pm.expect(p.total_fuel_cost).to.be.closeTo(p.initial_fuel_cost + p.fuel_stops.reduce((s,f) => s+f.cost,0), 0.005));"
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "name": "Short route",
+      "request": {
+        "method": "POST",
+        "header": [
+          {
+            "key": "Content-Type",
+            "value": "application/json"
+          }
+        ],
+        "url": "{{base_url}}/api/route/",
+        "body": {
+          "mode": "raw",
+          "raw": "{\n  \"start\": \"New York, NY\",\n  \"finish\": \"Philadelphia, PA\"\n}"
+        }
+      },
+      "event": [
+        {
+          "listen": "test",
+          "script": {
+            "type": "text/javascript",
+            "exec": [
+              "pm.test(\"HTTP 200\", () => pm.response.to.have.status(200));",
+              "const p = pm.response.json();",
+              "pm.test(\"All legs fit the tank\", () => p.legs.forEach(l => pm.expect(l.distance_miles).to.be.at.most(500)));",
+              "pm.test(\"Fuel cost reconciles\", () => pm.expect(p.total_fuel_cost).to.be.closeTo(p.initial_fuel_cost + p.fuel_stops.reduce((s,f) => s+f.cost,0), 0.005));"
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "name": "Same location",
+      "request": {
+        "method": "POST",
+        "header": [
+          {
+            "key": "Content-Type",
+            "value": "application/json"
+          }
+        ],
+        "url": "{{base_url}}/api/route/",
+        "body": {
+          "mode": "raw",
+          "raw": "{\n  \"start\": \"New York, NY\",\n  \"finish\": \"New York, NY\"\n}"
+        }
+      },
+      "event": [
+        {
+          "listen": "test",
+          "script": {
+            "type": "text/javascript",
+            "exec": [
+              "pm.test(\"HTTP 400\", () => pm.response.to.have.status(400));"
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "name": "Outside USA",
+      "request": {
+        "method": "POST",
+        "header": [
+          {
+            "key": "Content-Type",
+            "value": "application/json"
+          }
+        ],
+        "url": "{{base_url}}/api/route/",
+        "body": {
+          "mode": "raw",
+          "raw": "{\n  \"start\": \"Toronto, Ontario\",\n  \"finish\": \"New York, NY\"\n}"
+        }
+      },
+      "event": [
+        {
+          "listen": "test",
+          "script": {
+            "type": "text/javascript",
+            "exec": [
+              "pm.test(\"HTTP 422\", () => pm.response.to.have.status(422));"
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "name": "Empty location",
+      "request": {
+        "method": "POST",
+        "header": [
+          {
+            "key": "Content-Type",
+            "value": "application/json"
+          }
+        ],
+        "url": "{{base_url}}/api/route/",
+        "body": {
+          "mode": "raw",
+          "raw": "{\n  \"start\": \"\",\n  \"finish\": \"New York, NY\"\n}"
+        }
+      },
+      "event": [
+        {
+          "listen": "test",
+          "script": {
+            "type": "text/javascript",
+            "exec": [
+              "pm.test(\"HTTP 400\", () => pm.response.to.have.status(400));"
+            ]
+          }
+        }
+      ]
+    }
+  ]
+}
